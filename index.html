@@ -175,43 +175,20 @@
 							</header>
 
 							<p>Contact me with any questions if you have them! Just input your name, email, and message.</p>
+							
 
-
-<?php
-$action=$_REQUEST['action'];
-if ($action=="")    /* display the contact form */
-    {
-    ?>
-    <form  action="" method="POST" enctype="multipart/form-data">
-    <input type="hidden" name="action" value="submit">
-    Your name:<br>
-    <input name="name" type="text" value="" size="30"/><br>
-    Your email:<br>
-    <input name="email" type="text" value="" size="30"/><br>
-    Your message:<br>
-    <textarea name="message" rows="7" cols="30"></textarea><br>
-    <input type="submit" value="Send email"/>
-    </form>
-    <?php
-    } 
-else                /* send the submitted data */
-    {
-    $name=$_REQUEST['name'];
-    $email=$_REQUEST['email'];
-    $message=$_REQUEST['message'];
-    if (($name=="")||($email=="")||($message==""))
-        {
-        echo "All fields are required, please fill <a href=\"\">the form</a> again.";
-        }
-    else{        
-        $from="From: $name<$email>\r\nReturn-path: $email";
-        $subject="Message sent using your contact form";
-        mail("160812@hkis.edu.hk", $subject, $message, $from);
-        echo "Email sent!";
-        }
-    }  
-?>
-
+							<form method="post" action="#">
+								<div class="row">
+									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="12u$">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+									<div class="12u$">
+										<input type="submit" value="Send Message" />
+									</div>
+								</div>
+							</form>
 
 
 
